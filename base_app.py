@@ -56,12 +56,8 @@ def main():
 	if selection == "Information":
 		st.info("General Information")
 		# You can read a markdown file from supporting resources folder
-		st.markdown("""Some information here,
-        
-        1:hfch, 
-        2, 
-        0,
-        -1""")
+		st.markdown("This web App provides 5 different classification models which classifies whether or not a person believe climate change is a real threat. There are 4 different categories which differentiates people’s believes.Categories Description:2 News: the tweet links to factual news about climate change.1 Pro: the tweet supports the belief of man-made climate change. 0 Neutral: the tweet neither supports nor refutes the belief of man-made climate change. -1 Anti: the tweet does not believe in man-made climate change Variable definitionsThe results will enable access to a diverse range of consumer sentiments towards climate change hence empowering them to make informed business decisions.
+")
 
 		st.subheader("Raw Twitter data and label")
 		if st.checkbox('Show raw data'): # data is hidden if box is unchecked
@@ -82,7 +78,8 @@ def main():
 			predictor = joblib.load(open(os.path.join("resources/Logistic_regression.pkl"),"rb"))
 			lr_prediction = predictor.predict(vect_text)
 			st.success("Text Categorized as: {}".format(lr_prediction))
-			st.info("For Further Information on Categories: 1-neutral,2-believer, 0-non_believer,-1-man_made")
+			st.info("For Further Information on Categories: •	2 News: the tweet links to factual news about climate change •	1 Pro: the tweet supports the belief of man-made climate change •	0 Neutral: the tweet neither supports nor refutes the belief of man-made climate change •	-1 Anti: the tweet does not believe in man-made climate change Variable definitions
+")
 
 #Random Forest
 	# Building out the predication page
