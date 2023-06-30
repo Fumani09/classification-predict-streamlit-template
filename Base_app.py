@@ -463,23 +463,7 @@ def make_predict(url):
     predictor = joblib.load(
         open(os.path.join(url), "rb"))
     lr_prediction = predictor.predict(vect_text)
-
-    match lr_prediction[0]:
-        case 2:
-            st.success(
-                "Text Categorized as: {} - the tweet links to factual news about climate change".format(lr_prediction[0]))
-
-        case 1:
-            st.success(
-                "Text Categorized as: {} - the tweet supports the belief of man-made climate change".format(lr_prediction[0]))
-
-        case 0:
-            st.success(
-                "Text Categorized as: {} - the tweet neither supports nor refutes the belief of man-made climate change".format(lr_prediction[0]))
-
-        case -1:
-            st.success(
-                "Text Categorized as: {} - the tweet does not believe in man-made climate change Variable definitions".format(lr_prediction[0]))
+    st.success("Text Categorized as: {}".format(lr_prediction))
 
     # ff
     st.caption("")
